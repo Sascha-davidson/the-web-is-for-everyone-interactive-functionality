@@ -1,0 +1,64 @@
+<header>
+    <div class="site-header">
+        <div class="site-identity">
+            <a href="/">
+                <img src="assets/logo-icon/vervoerregio-logo.svg" alt="Vervoerregio Amsterdam">
+
+            </a>
+        </div>
+
+        <section id="menu" class="menu">
+            <button>menu</button>
+        </section>
+
+
+        <nav>
+            <ul class="main-nav">
+                <li><a href="/" <% if(active=="/" ) {%> class="active"<%}%> >Home</a></li>
+                <li><a href="/toolboard"<% if(active=="/toolboard" ) {%> class="active"<%}%>>Het Toolboard</a></li>
+                <li><a href="/contact"<% if(active=="/contact" ) {%> class="active"<%}%>>Contact</a></li>
+                <li><button id="filter">Filter</button></li>
+
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="vervoerregio-path-box-devided">
+        <section class="responsive-width"></section>
+        <section class="logo-width"></section>
+
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg class="vervoerregio-path-curve" id="Laag_1" data-name="Laag 1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 990.38 392.17">
+            <defs>
+
+            </defs>
+            <path class="curve" d="M0,392.17V0H990.38C495.19,0,495.19,392.17,0,392.17Z" />
+        </svg>
+    </div>
+
+    <dialog id="favDialog">
+        <form>
+            <div class="dialog-content">
+                <label><input type="checkbox" id="mode"><span>Donker moden</span></label>
+                <label><input type="checkbox" id=""> <span>hoog contrast</span></label>
+
+                <label><input type="checkbox" id=""> <span>Lettergrootte</span></label>
+                <label><input type="checkbox" id=""> <span>Bewegend beeld</span></label>
+
+            </div>
+            <button value="cancel">Terug</button>
+
+
+        </form>
+    </dialog>
+
+
+
+
+</header>
+
+
+
+
