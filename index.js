@@ -7,7 +7,7 @@ const urls = '/urls'
 const websites = '/websites'
 const url = baseurl + slug
 
-const url_data = await fetch(baseurl + urls). then((response) => response.json())
+const url_data = await fetch(baseurl + urls + '?first=300'). then((response) => response.json())
 const website_data = await fetch(baseurl + websites). then((response) => response.json())
 const data = await fetch(url). then((response) => response.json())
 
@@ -33,7 +33,19 @@ app.get('/', function (req, res) {
 // Maak een route voor de toolboard
 app.get('/toolboard', function (req, res) {
   console.log(data)
-  res.render('toolboard', {url_data, data, active: '/toolboard'})
+  res.render('toolboard', {url_data, data, website_data, active: '/toolboard'})
+})
+
+// Maak een route voor de checklist
+app.get('/checklist', function (req, res) {
+  console.log(data)
+  res.render('checklist', {api: data, active: '/checklist'})
+})
+
+// Maak een route voor de contact
+app.get('/contact', function (req, res) {
+  console.log(data)
+  res.render('contact', {url_data, data, website_data, active: '/contact'})
 })
 
 // haalt post data op
@@ -57,18 +69,6 @@ app.post('/add-to-api', function(req, res) {
       response.render('form', newdata)
     }
   })
-})
-
-// Maak een route voor de checklist
-app.get('/checklist', function (req, res) {
-  console.log(data)
-  res.render('checklist', {api: data, active: '/checklist'})
-})
-
-// Maak een route voor de checklist
-app.get('/contact', function (req, res) {
-  console.log(data)
-  res.render('contact', {url_data, data, website_data, active: '/contact'})
 })
 
 // Stel het poortnummer in waar express op gaat luisteren

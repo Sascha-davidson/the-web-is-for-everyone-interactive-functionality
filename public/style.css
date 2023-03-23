@@ -560,7 +560,7 @@ dialog input[type="checkbox"]:checked {
 }
 
 /* main deze dit in de vervolg pagina's */
-main{
+main {
   max-width: 120em;
   margin: auto;
 }
@@ -604,7 +604,7 @@ main{
 .toolboard .checklist-list {
   padding: var(--medium-gap) 0;
   display: grid;
-  grid-template-columns: repeat( auto-fit,  minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
   column-gap: 20px;
   row-gap: 20px;
 }
@@ -616,11 +616,18 @@ main{
   border-radius: var(--b-radius-medium);
   position: relative;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   gap: var(--smal-gap);
 }
 
-.checklist-list .card .vortgang div {
+.divider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--smal-gap);
+}
+
+.checklist-list .vortgang div {
   display: flex;
   justify-content: space-between;
 }
@@ -1038,6 +1045,6 @@ details::marker {
   }
 
   .header-style-content {
-  padding-bottom: 15vh;
+    padding-bottom: 15vh;
   }
 }

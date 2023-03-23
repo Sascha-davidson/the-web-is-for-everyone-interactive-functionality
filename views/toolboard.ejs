@@ -15,47 +15,47 @@
             </dialog>
 
             <div class="checklist-list">
-                <div class="card">
-                    <div>
-                        <h4>Tietel</h4>
-                        <a href="https://api.vervoerregio-amsterdam.fdnd.nl/api/v1/principes" class="url">https://api.vervoerregio-amsterdam.fdnd.nl/api/v1/principes</a>
+                <% url_data.urls.forEach(url=> { %>
+                    <div class="card">
+                        <div>
+                            <h4><%= url.website.titel %></h4>
+
+                        </div>
+                        <div class="divider">
+                            <a href="https://api.vervoerregio-amsterdam.fdnd.nl/api/v1/principes"
+                            class="url"><%= url.url %></a>
+                        <div class="vortgang">
+                            <div>
+                                <p>Waneembaar</p>
+                                <p>%</p>
+                            </div>
+                            <div>
+                                <p>bedienbaar</p>
+                                <p>%</p>
+                            </div>
+                            <div>
+                                <p>begrijpelijk</p>
+                                <p>%</p>
+                            </div>
+                            <div>
+                                <p>Robuust</p>
+                                <p>%</p>
+                            </div>
+                        </div>
+                        <div class="butten-time">
+                            <button class="bekijk-pagina">></button>
+                            <div class="time">
+                                <p>Aangemaakt op:</p>
+                                <p><%= url.createdAt.slice(0, 10) %></p>
+                                <button class="card-cancel">X</button>
+                            </div>
+                        </div>
+                        </div>
+                        <dialog class="delete-card">
+
+                        </dialog>
                     </div>
-                    <div class="vortgang">
-                        <div>
-                            <p>Waneembaar</p>
-                            <p>%</p>
-                        </div>
-                        <div>
-                            <p>bedienbaar</p>
-                            <p>%</p>
-                        </div>
-                        <div>
-                            <p>begrijpelijk</p>
-                            <p>%</p>
-                        </div>
-                        <div>
-                            <p>Robuust</p>
-                            <p>%</p>
-                        </div>
-                    </div>
-                    <div class="butten-time">
-                        <button class="bekijk-pagina">></button>
-                        <div class="time">
-                            <p>Aangemaakt op:</p>
-                            <p>22-03-2023</p>
-                            <button class="card-cancel">X</button>
-                        </div>
-                    </div>
-                    <dialog class="delete-card">
-
-                    </dialog>
-                </div>
-
-
-                <div class="card">test</div>
-                <div class="card">test</div>
-                <div class="card">test</div>
-
+                    <%})%>
             </div>
         </main>
 
