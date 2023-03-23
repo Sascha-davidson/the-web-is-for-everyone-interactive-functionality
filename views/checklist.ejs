@@ -1,0 +1,53 @@
+<%- include('./partials/head') %>
+    <%- include('./partials/header') %>
+
+        <main class="checklist">
+            <section class="principe">
+
+                <% api.principes.forEach(principe=> { %>
+                    <section class="principe-box">
+                        <h2><%- principe.titel %></h2>
+                        <%- principe.beschrijving.html%>
+                            <% principe.richtlijnen.forEach(richtlijn=> { %>
+
+                                <details class="parent-details">
+                                    <summary>
+                                            <i class="fa-solid fa-caret-down"></i>
+                                            <h3> <%- richtlijn.titel%>
+
+                                            </h3>
+                                    </summary>
+                                    <div class="parent-details-content">
+                                        <% richtlijn.succescriteria.forEach(succescritirum=> { %>
+
+                                            <details class="child-details">
+                                                <summary>
+                                                    <div>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                        <h4> <%- succescritirum.titel%>
+
+                                                                </h3>
+                                                    </div>
+                                                    <label><input type="checkbox">
+                                                        <i class="fa-solid fa-check"></i>
+                                                    </label>
+                                                </summary>
+                                                <div class="child-details-content">
+
+                                                    test
+                                            </details>
+                                            <%})%>
+                                    </div>
+                                </details>
+                                <%})%>
+
+                    </section>
+
+                    <%})%>
+            </section>
+            <section class="side-bar">
+
+            </section>
+        </main>
+
+        <%- include('./partials/foot') %>

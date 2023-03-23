@@ -1,53 +1,62 @@
 <%- include('./partials/head') %>
     <%- include('./partials/header') %>
 
-        <main>
-            <section class="principe">
+        <main class="toolboard">
+            <div class="intro">
+                <h2>Check onze partners</h2>
+                <p>Dat moet al of moet binnen 2 jaar! Voor overheden is dit al verplicht. En vanaf 2025 moet iedere
+                    nieuwe
+                    website en app digitaal toegankelijk zijn.
+                </p>
+                <button>Check een nieuwe website</button>
+            </div>
+            <dialog class="new-card">
 
-                <% api.principes.forEach(principe=> { %>
-                    <section class="principe-box">
-                        <h2><%- principe.titel %></h2>
-                        <%- principe.beschrijving.html%>
-                            <% principe.richtlijnen.forEach(richtlijn=> { %>
+            </dialog>
 
-                                <details class="parent-details">
-                                    <summary>
-                                            <i class="fa-solid fa-caret-down"></i>
-                                            <h3> <%- richtlijn.titel%>
+            <div class="checklist-list">
+                <div class="card">
+                    <div>
+                        <h4>Tietel</h4>
+                        <a href="https://api.vervoerregio-amsterdam.fdnd.nl/api/v1/principes" class="url">https://api.vervoerregio-amsterdam.fdnd.nl/api/v1/principes</a>
+                    </div>
+                    <div class="vortgang">
+                        <div>
+                            <p>Waneembaar</p>
+                            <p>%</p>
+                        </div>
+                        <div>
+                            <p>bedienbaar</p>
+                            <p>%</p>
+                        </div>
+                        <div>
+                            <p>begrijpelijk</p>
+                            <p>%</p>
+                        </div>
+                        <div>
+                            <p>Robuust</p>
+                            <p>%</p>
+                        </div>
+                    </div>
+                    <div class="butten-time">
+                        <button class="bekijk-pagina">></button>
+                        <div class="time">
+                            <p>Aangemaakt op:</p>
+                            <p>22-03-2023</p>
+                            <button class="card-cancel">X</button>
+                        </div>
+                    </div>
+                    <dialog class="delete-card">
 
-                                            </h3>
-                                    </summary>
-                                    <div class="parent-details-content">
-                                        <% richtlijn.succescriteria.forEach(succescritirum=> { %>
+                    </dialog>
+                </div>
 
-                                            <details class="child-details">
-                                                <summary>
-                                                    <div>
-                                                        <i class="fa-solid fa-caret-down"></i>
-                                                        <h4> <%- succescritirum.titel%>
 
-                                                                </h3>
-                                                    </div>
-                                                    <label><input type="checkbox">
-                                                        <i class="fa-solid fa-check"></i>
-                                                    </label>
-                                                </summary>
-                                                <div class="child-details-content">
+                <div class="card">test</div>
+                <div class="card">test</div>
+                <div class="card">test</div>
 
-                                                    test
-                                            </details>
-                                            <%})%>
-                                    </div>
-                                </details>
-                                <%})%>
-
-                    </section>
-
-                    <%})%>
-            </section>
-            <section class="side-bar">
-
-            </section>
+            </div>
         </main>
 
         <%- include('./partials/foot') %>

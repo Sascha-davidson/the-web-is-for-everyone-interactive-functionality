@@ -1,9 +1,18 @@
 <%- include('./partials/head') %>
 <%- include('./partials/header') %>
 
-<% api.principes.forEach(principe => { %>
-    <%= principe.titel %>
-<%})%>
+<form method="post" action="/add-to-api">
+    <label for="name">Maak een naam <span>(verplicht)</span></label>
+    <select id="name" name="websiteId">
+        <% website_data.websites.forEach(website=> { %>
+            <option value="<%= website.id  %>"><%= website.titel %></option>
+        <%})%>
+    </select>
 
+    <label for="name">plaats een url <span>(verplicht)</span></label>
+    <input id="name" type="url" required name="url">
+
+    <input type="submit" />
+</form>
 
 <%- include('./partials/foot') %>

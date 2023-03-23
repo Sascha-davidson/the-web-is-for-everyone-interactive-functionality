@@ -33,14 +33,14 @@
   --medium-gap: 2.5em;
   --large-gap: 4em;
 
-  --b-radius-small: 5px;
-  --b-radius-medium: 10px;
-  --b-radius-large: 15px;
-  --b-radius-rounded: 50px;
+  --b-radius-small: 0.3125em;
+  --b-radius-medium: 0.625em;
+  --b-radius-rounded: 16em;
 
-  --site-header-height: 45px;
-  --vervoerregio-path-box-height: 30px;
-  --min-vervoerregio-path-box-height: -30px;
+  --site-header-height: 2.8em;
+  --vervoerregio-path-box-height: 1.875em;
+  --min-vervoerregio-path-box-height: -1.875em;
+  --main-padding: var(--vervoerregio-path-box-height) 10% 8em 10%;
 
   --border: 0.2em solid var(--c-primary);
 
@@ -72,6 +72,11 @@
     --site-header-height: 45px;
     --vervoerregio-path-box-height: 45px;
     --min-vervoerregio-path-box-height: -45px;
+  }
+}
+@media screen and (min-width: 50em) {
+  :root {
+    --main-padding: var(--vervoerregio-path-box-height) 11em 8em 11em;
   }
 }
 
@@ -125,7 +130,7 @@ h3 {
 
 h4 {
   /* font-size: 1.8em; */
-  font-size: clamp(1.5em, 3vw, 1.7em);
+  font-size: 1.3em;
   font-weight: 600;
 }
 
@@ -209,7 +214,7 @@ header .site-header {
   border: none;
   padding: 0.5em;
   transition: 0.3s;
-  border-radius: var(--b-radius-medium);
+  border-radius: var(--b-radius-small);
 }
 
 .menu button:hover {
@@ -265,7 +270,7 @@ header nav .main-nav li .active {
 nav button {
   transition: all 0.3s ease-in-out;
   padding: 0.3em 1em;
-  border-radius: var(--b-radius-medium);
+  border-radius: var(--b-radius-small);
   border: none;
   color: var(--c-color-light-solid);
   background-color: var(--c-primary);
@@ -299,7 +304,7 @@ dialog {
   transform: translate(-50%, -50%);
 
   padding: 1em;
-  border-radius: var(--b-radius-medium);
+  border-radius: var(--b-radius-small);
 }
 
 dialog::backdrop {
@@ -332,7 +337,7 @@ dialog label span {
 dialog button {
   transition: all 0.3s ease-in-out;
   padding: 0.3em 2em;
-  border-radius: var(--b-radius-medium);
+  border-radius: var(--b-radius-small);
   border: none;
   height: calc(4.375em - 2em);
   color: var(--c-color-light-solid);
@@ -532,7 +537,7 @@ dialog input[type="checkbox"]:checked {
   font-size: 1.125em;
   transition: all 0.3s ease-in-out;
   padding: 0.3em 2em;
-  border-radius: var(--b-radius-medium);
+  border-radius: var(--b-radius-small);
   border: none;
   height: calc(4.73em - 2em);
   color: var(--c-color-light-solid);
@@ -555,32 +560,142 @@ dialog input[type="checkbox"]:checked {
 }
 
 /* main deze dit in de vervolg pagina's */
+main{
+  max-width: 120em;
+  margin: auto;
+}
 
-main {
-
+.checklist {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
   gap: var(--medium-gap);
   position: relative;
-  padding: var(--vervoerregio-path-box-height) 10% 8em 10%;
+  padding: var(--main-padding);
 }
 
-main .principe{
+.toolboard {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  padding: var(--main-padding);
+}
+
+.toolboard .intro p {
+  max-width: 45em;
+}
+/* dialog  */
+.new-card {
+  width: 100vw;
+  height: 100vh;
+  background-color: orange;
+}
+
+.url {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  color: var(--c-primary);
+}
+
+.toolboard .checklist-list {
+  padding: var(--medium-gap) 0;
+  display: grid;
+  grid-template-columns: repeat( auto-fit,  minmax(15rem, 1fr));
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.checklist-list .card {
+  background-color: var(--c-background-light);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  padding: 1em;
+  border-radius: var(--b-radius-medium);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--smal-gap);
+}
+
+.checklist-list .card .vortgang div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checklist-list .card .butten-time {
+  display: flex;
+  gap: var(--smal-gap);
+}
+
+/* main / buttons */
+
+.toolboard .intro button {
+  font-size: 1.125em;
+  transition: all 0.3s ease-in-out;
+  padding: 0.3em 2em;
+  border-radius: var(--b-radius-small);
+  border: none;
+  color: var(--c-color-light-solid);
+  background-color: var(--c-primary);
+  width: fit-content;
+  height: fit-content;
+  border: var(--button);
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+.toolboard .bekijk-pagina {
+  transition: all 0.3s ease-in-out;
+  border-radius: var(--b-radius-small);
+  border: none;
+  color: var(--c-color-light-solid);
+  background-color: var(--c-primary);
+  height: 100%;
+  aspect-ratio: 1/1;
+  border: var(--button);
+  cursor: pointer;
+}
+
+.toolboard .card-cancel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(30%, -40%);
+
+  transition: all 0.3s ease-in-out;
+  border-radius: var(--b-radius-rounded);
+  border: none;
+  color: var(--c-color-dark);
+  background-color: var(--c-background-light);
+  aspect-ratio: 1;
+  height: 2em;
+  cursor: pointer;
+}
+
+.toolboard .card-cancel:hover {
+  background-color: #ff0000;
+}
+
+.checklist .principe {
   display: flex;
   flex-direction: column;
   gap: var(--medium-gap);
 }
 
-main .principe-box{
+.checklist .principe-box {
   background-color: var(--c-background-light);
   padding: 2em;
-  border-radius: var(--b-radius-large);
+  border-radius: var(--b-radius-medium);
   max-width: 55em;
 }
 
-main .side-bar{
+.checklist .side-bar {
   background-color: var(--c-background-light);
   height: 300px;
   width: 400px;
@@ -589,13 +704,13 @@ main .side-bar{
 /* details summary */
 /* parent-details */
 
-details{
+details {
   cursor: pointer;
 }
 
-.parent-details{
+.parent-details {
   box-shadow: var(--c-box-shadow-dark);
-  border-radius: var(--b-radius-large);
+  border-radius: var(--b-radius-medium);
   margin-top: 1em;
   overflow: hidden;
 }
@@ -603,66 +718,57 @@ details{
 .parent-details > summary {
   background: none;
   color: var(--c-color-light);
-  border-radius: var(--b-radius-large);
+  border-radius: var(--b-radius-medium);
   display: flex;
   padding: 1rem 1.5rem;
-  
 }
 
 .parent-details[open] > summary {
   background-color: var(--c-primary);
   color: var(--c-color-light-solid);
-  border-radius: var(--b-radius-large) var(--b-radius-large) 0 0;
+  border-radius: var(--b-radius-medium) var(--b-radius-medium) 0 0;
   padding: 1rem 1.5rem;
   box-shadow: var(--c-box-shadow-dark);
-
 }
 
 .parent-details:hover > summary {
   background-color: var(--c-primary);
 }
 
-.parent-details-content{
+.parent-details-content {
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  gap: .3em;
+  gap: 0.3em;
 }
 
 /* child-details */
 
-.child-details{
+.child-details {
   background-color: var(--c-background-light);
 }
 
 .child-details > summary {
   background: none;
   color: var(--c-color-light);
-  border-radius: var(--b-radius-large);
+  border-radius: var(--b-radius-medium);
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  
 }
 
 .child-details[open] > summary {
   border-bottom: 3px solid;
   margin-bottom: -3px;
-
 }
 
-.child-details .details-content{
+.child-details .details-content {
   padding: 0 1.5em;
 }
 
-.child-details-content{
+.child-details-content {
   padding: 0 1.5em;
 }
-
-
-
-
-
 
 details h3 {
   font-size: 1rem;
@@ -691,7 +797,6 @@ details:hover h4 {
 details[open] h4 {
   color: var(--c-color-dark);
 }
-
 
 /* 
 details h3 {
@@ -732,7 +837,7 @@ details::marker {
 }
 
 .content-richtlinen details[open] {
-  border-radius: var(--b-radius-medium);
+  border-radius: var(--b-radius-small);
 }
 
 
@@ -775,7 +880,7 @@ details::marker {
   cursor: pointer;
   margin-left: auto;
   background-color: var(--c-background-light);
-  border-radius: var(--b-radius-medium);
+  border-radius: var(--b-radius-small);
 }
 
 .content-richtlinen details summary label i {
@@ -905,7 +1010,6 @@ details::marker {
   dialog button {
     font-size: 2em;
   }
-
 }
 
 @media screen and (min-width: 74em) {
@@ -920,3 +1024,20 @@ details::marker {
   }
 }
 
+@media screen and (min-height: 67.5em) {
+  .bottom-bar-verloop {
+    height: 5vh;
+  }
+
+  .bottom-bar-box {
+    height: 10vh;
+  }
+
+  .header-style-image {
+    margin-bottom: -5vh;
+  }
+
+  .header-style-content {
+  padding-bottom: 15vh;
+  }
+}
