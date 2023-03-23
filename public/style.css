@@ -565,6 +565,10 @@ main {
   margin: auto;
 }
 
+main h2{
+  color: var(--c-primary);
+}
+
 .checklist {
   display: flex;
   flex-direction: row;
@@ -581,6 +585,12 @@ main {
 
   position: relative;
   padding: var(--main-padding);
+}
+
+.toolboard .intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--smal-gap);
 }
 
 .toolboard .intro p {
@@ -604,7 +614,7 @@ main {
 .toolboard .checklist-list {
   padding: var(--medium-gap) 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
   column-gap: 20px;
   row-gap: 20px;
 }
@@ -651,7 +661,6 @@ main {
   height: fit-content;
   border: var(--button);
   cursor: pointer;
-  margin-top: 1em;
 }
 
 .toolboard .bekijk-pagina {
