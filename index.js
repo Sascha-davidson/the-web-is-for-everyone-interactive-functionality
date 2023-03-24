@@ -59,7 +59,7 @@ app.post('/add-to-api', function(req, res) {
     let newURL = { ... request.body }
 
     if (data.success) {
-      response.redirect('/?urlPosted=true') 
+      response.redirect('/') 
       // TODO: squad meegeven, message meegeven
       // TODO: Toast meegeven aan de homepagina
     } else {
@@ -88,7 +88,7 @@ app.listen(app.get('port'), function () {
  * @param {*} body the payload to send along
  * @returns the json response from the api endpoint
  */
-export async function postJson(url, body) {
+async function postJson(url, body) {
   return await fetch(url, {
     method: 'post',
     body: JSON.stringify(body),
