@@ -1,7 +1,10 @@
 <%- include('./partials/head') %>
 <%- include('./partials/header') %>
+<% if (typeof(newdata) != 'undefined') { %>
+    Er ging iets mis hoor, sorry. <%= newdata.error %>
+<% } %>
 
-<form method="post" action="/add-to-api">
+<form method="post" action="/contact">
     <label for="name">Maak een naam <span>(verplicht)</span></label>
     <select id="name" name="websiteId">
         <% website_data.websites.forEach(website=> { %>

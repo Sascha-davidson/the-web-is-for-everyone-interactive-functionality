@@ -45,28 +45,28 @@ app.get('/checklist', function (req, res) {
 // Maak een route voor de contact
 app.get('/contact', function (req, res) {
   console.log(data)
-  res.render('contact', {url_data, data, website_data, active: '/contact'})
+  res.render('contact', {website_data, active: '/contact'})
 })
 
 // haalt post data op
-app.post('/add-to-api', function(req, res) {
+app.post('/contact', function(req, res) {
   console.log(req.body)
   // TODO voor Sascha :)
   // POST naar https://api.vervoerregio-amsterdam.fdnd.nl/api/v1/urls, de req.body
 
   const test = baseurl + urls
   postJson(test, req.body).then((data) => {
-    let newURL = { ... request.body }
-
-    if (data.success) {
-      response.redirect('/') 
+    let newURL = { ... req.body }
+    console.log(JSON.stringify(data))
+    if (data.data) {
+      res.redirect('/toolboard') 
       // TODO: squad meegeven, message meegeven
       // TODO: Toast meegeven aan de homepagina
     } else {
-      const errormessage = `${data.message}: URl bestaat al.`
+      const errormessage = `${req.body.url}: URl bestaat al.`
       const newdata = { error: errormessage, values: newURL }
       
-      response.render('form', newdata)
+      res.render('contact', {newdata, website_data, active: '/contact' })
     }
   })
 })
