@@ -11,6 +11,31 @@ const url_data = await fetch(baseurl + urls + '?first=300'). then((response) => 
 const website_data = await fetch(baseurl + websites). then((response) => response.json())
 const data = await fetch(url). then((response) => response.json())
 
+
+
+
+
+// op een anderemanier de api urls verdelen
+
+// const baseurl = 'https://api.vervoerregio-amsterdam.fdnd.nl/api/v1'
+// const urls = [
+//   [baseurl] + '/principes',
+//   [baseurl] + '/urls',
+//   [baseurl] + '/websites',
+// ];
+
+// const [principes, urls, websites] = await Promise.all(urls.map(fetchJson));
+// const data = { principes, urls, websites };
+
+// app.get('/', function (req, res) {
+//   res.render('index', data {active: '/'})
+// });
+
+
+
+
+
+
 // Maak een nieuwe express app aan
 const app = express()
 
@@ -54,6 +79,7 @@ app.post('/contact', function(req, res) {
   // TODO voor Sascha :)
   // POST naar https://api.vervoerregio-amsterdam.fdnd.nl/api/v1/urls, de req.body
 
+  // reaction for succed or failur
   const test = baseurl + urls
   postJson(test, req.body).then((data) => {
     let newURL = { ... req.body }

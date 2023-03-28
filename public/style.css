@@ -11,6 +11,8 @@
   --c-vervoerregio-green: #25ae93;
   --c-vervoerregio-blue: #606eb3;
 
+  --body-color: #e8e8e8;
+
   --c-background-light: #fff;
   --c-background-dark: #222224;
 
@@ -50,6 +52,8 @@
 }
 
 [data-theme="dark"] {
+  --body-color: #000000;
+
   --c-background-light: #222224;
   --c-background-dark: #fff;
 
@@ -74,7 +78,7 @@
     --min-vervoerregio-path-box-height: -45px;
   }
 }
-@media screen and (min-width: 50em) {
+@media screen and (min-width: 120em) {
   :root {
     --main-padding: var(--vervoerregio-path-box-height) 11em 8em 11em;
   }
@@ -96,7 +100,7 @@ body {
   font-size: 1rem;
   /* max-width: 120em; */
   /* margin: 0 auto; */
-  background-color: #e8e8e8;
+  background-color: var(--body-color);
   color: var(--c-color-dark);
   position: relative;
   overflow-x: hidden;
@@ -147,6 +151,10 @@ button {
   font-size: 1em;
 }
 
+input {
+  font-size: 1em;
+}
+
 label {
   font-size: 1em;
 }
@@ -166,6 +174,10 @@ a {
   }
 
   button {
+    font-size: 1.125em;
+  }
+
+  input {
     font-size: 1.125em;
   }
 
@@ -283,109 +295,6 @@ nav button:hover {
   border: var(--button);
   color: var(--c-color-light-solid);
   background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* dialog */
-
-dialog {
-  position: absolute;
-  border: var(--c-box-shadow-dark);
-  left: 50%;
-  top: 50%;
-  width: 90vw;
-  height: 80vh;
-  width: 90svw;
-  height: 80svh;
-  max-width: 50em;
-
-  min-height: 20em;
-  max-height: 30em;
-
-  transform: translate(-50%, -50%);
-
-  padding: 1em;
-  border-radius: var(--b-radius-small);
-}
-
-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-dialog form {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 100%;
-}
-
-dialog form .dialog-content {
-  display: flex;
-  flex-direction: column;
-}
-
-dialog label {
-  color: var(--c-color-dark);
-  display: flex;
-  gap: 1em;
-  margin: 0 0 1em 0;
-}
-
-dialog label span {
-  margin: auto 0;
-}
-
-dialog button {
-  transition: all 0.3s ease-in-out;
-  padding: 0.3em 2em;
-  border-radius: var(--b-radius-small);
-  border: none;
-  height: calc(4.375em - 2em);
-  color: var(--c-color-light-solid);
-  background-color: var(--c-primary);
-  width: fit-content;
-  height: fit-content;
-  border: var(--button);
-  cursor: pointer;
-}
-
-dialog button:hover {
-  color: var(--c-color-light-solid);
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-dialog input[type="checkbox"] {
-  position: relative;
-  width: 5em;
-  height: 2.5em;
-  -webkit-appearance: none;
-  appearance: none;
-  background: var(--c-primary);
-  outline: none;
-  border-radius: 2em;
-  cursor: pointer;
-  box-shadow: inset 0 0 0.2em rgb(0 0 0 / 50%);
-}
-
-dialog input[type="checkbox"]::before {
-  content: "";
-  width: 1.875em;
-  aspect-ratio: 1/1;
-  margin: 0.3em;
-  border-radius: 50%;
-  background: var(--c-color-dark-solid);
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: 0.5s;
-}
-
-dialog input[type="checkbox"]:checked::before {
-  transform: translateX(calc(100% + 0.6em));
-  background: var(--c-color-dark-solid);
-}
-
-dialog input[type="checkbox"]:checked {
-  background: var(--c-vervoerregio-green);
 }
 
 .open-menu {
@@ -565,8 +474,14 @@ main {
   margin: auto;
 }
 
-main h2{
+main h2 {
   color: var(--c-primary);
+}
+
+.voortgang{
+  display: flex;
+  gap: var(--smal-gap);
+  justify-content: space-between;
 }
 
 .checklist {
@@ -598,10 +513,51 @@ main h2{
 }
 /* dialog  */
 .new-card {
-  width: 100vw;
-  height: 100vh;
-  background-color: orange;
+  width: 50vw;
+  top: 8em;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--c-background-light);
+  border-radius: var(--b-radius-medium);
+  border: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 8);
+  padding: 3em;
 }
+
+.new-card::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.new-card div {
+  display: flex;
+  gap: var(--smal-gap);
+  width: 100%;
+}
+
+.new-card form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--smal-gap);
+}
+
+.delete-card{
+  width: 50vw;
+  top: 8em;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--c-background-light);
+  border-radius: var(--b-radius-medium);
+  border: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 8);
+  padding: 3em;
+}
+
+.delete-card::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+
 
 .url {
   white-space: nowrap;
@@ -614,7 +570,7 @@ main h2{
 .toolboard .checklist-list {
   padding: var(--medium-gap) 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(13em, 1fr));
   column-gap: 20px;
   row-gap: 20px;
 }
@@ -649,10 +605,9 @@ main h2{
 
 /* main / buttons */
 
-.toolboard .intro button {
-  font-size: 1.125em;
+.basic-button {
   transition: all 0.3s ease-in-out;
-  padding: 0.3em 2em;
+  padding: 0.5em 1em;
   border-radius: var(--b-radius-small);
   border: none;
   color: var(--c-color-light-solid);
@@ -664,15 +619,31 @@ main h2{
 }
 
 .toolboard .bekijk-pagina {
-  transition: all 0.3s ease-in-out;
   border-radius: var(--b-radius-small);
   border: none;
   color: var(--c-color-light-solid);
   background-color: var(--c-primary);
   height: 100%;
-  aspect-ratio: 1/1;
+  max-height: 41.6px;
   border: var(--button);
   cursor: pointer;
+  display: flex;
+  padding: 0.5em;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.toolboard .bekijk-pagina:hover {
+  height: 100%;
+  padding: .65em;
+}
+
+.toolboard .bekijk-pagina svg {
+  height: 100%;
+}
+
+.toolboard .bekijk-pagina .point {
+  fill: var(--c-color-light-solid);
 }
 
 .toolboard .card-cancel {
@@ -692,10 +663,20 @@ main h2{
   aspect-ratio: 1;
   height: 2em;
   cursor: pointer;
+  padding: .5em;
+}
+
+.toolboard .card-cancel svg{
+  height: 100%;
+}
+
+.toolboard .card-cancel .cross {
+  fill: var(--c-color-dark);
 }
 
 .toolboard .card-cancel:hover {
   background-color: #ff0000;
+  padding: .65em;
 }
 
 .checklist .principe {
@@ -935,11 +916,15 @@ details::marker {
   .logo-width {
     width: 15em;
   }
+
+  .toolboard .checklist-list {
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  }
 }
 
 @media screen and (min-width: 27.5em) {
-  dialog {
-    height: 60vh;
+  .toolboard .checklist-list {
+    grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
   }
 }
 
@@ -988,8 +973,7 @@ details::marker {
     width: auto;
   }
 
-  header nav .main-nav li a:hover,
-  header nav .main-nav li a:focus {
+  header nav .main-nav li a:is(:hover, :focus) {
     color: var(--c-primary);
     font-weight: 500;
   }
@@ -1012,19 +996,6 @@ details::marker {
 
   .logo-width {
     width: 22em;
-  }
-
-  dialog {
-    padding: 3em;
-  }
-
-  dialog label {
-    font-size: 2em;
-    gap: 0.5em;
-  }
-
-  dialog button {
-    font-size: 2em;
   }
 }
 

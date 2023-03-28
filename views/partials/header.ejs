@@ -17,8 +17,7 @@
                 <li><a href="/" <% if(active=="/" ) {%> class="active"<%}%> >Home</a></li>
                 <li><a href="/toolboard"<% if(active=="/toolboard" ) {%> class="active"<%}%>>Het Toolboard</a></li>
                 <li><a href="/contact"<% if(active=="/contact" ) {%> class="active"<%}%>>Contact</a></li>
-                <li><button id="filter">Filter</button></li>
-
+                <label>Thema <input type="checkbox" id="mode"></label>
             </ul>
         </nav>
 
@@ -37,25 +36,6 @@
             <path class="curve" d="M0,392.17V0H990.38C495.19,0,495.19,392.17,0,392.17Z" />
         </svg>
     </div>
-
-    <dialog id="favDialog">
-        <form>
-            <div class="dialog-content">
-                <label><input type="checkbox" id="mode"><span>Donker moden</span></label>
-                <label><input type="checkbox" id=""> <span>hoog contrast</span></label>
-
-                <label><input type="checkbox" id=""> <span>Lettergrootte</span></label>
-                <label><input type="checkbox" id=""> <span>Bewegend beeld</span></label>
-
-            </div>
-            <button value="cancel">Terug</button>
-
-
-        </form>
-    </dialog>
-
-
-
 
 </header>
 

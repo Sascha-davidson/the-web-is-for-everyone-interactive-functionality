@@ -30,14 +30,19 @@ function setTheme(theme) {
   localStorage.setItem("theme", theme);
 }
 
-const showDialog = document.getElementById("filter");
-const favDialog = document.getElementById("favDialog");
+const showDialog = document.getElementById("new-card-button");
+const newDialog = document.getElementById("new-card");
+const closeBtn = document.getElementById('close');
 
 showDialog.addEventListener("click", () => {
-  favDialog.showModal();
+  newDialog.showModal();
 });
 
-favDialog.addEventListener("close", () => {
-  outputBox.value = `ReturnValue: ${favDialog.returnValue}.`;
-});
+closeBtn.addEventListener('click', () =>{
+  newDialog.close()
+})
+
+// newDialog.addEventListener("close", () => {
+//   outputBox.value = `ReturnValue: ${newDialog.returnValue}.`;
+// });
 

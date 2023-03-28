@@ -8,9 +8,30 @@
                     nieuwe
                     website en app digitaal toegankelijk zijn.
                 </p>
-                <button>Check een nieuwe website</button>
+                <button class="basic-button" id="new-card-button">Check een nieuwe website </button>
             </div>
-            <dialog class="new-card">
+            <dialog id="new-card" class="new-card">
+                <% if (typeof(newdata) !='undefined' ) { %>
+                    Er ging iets mis hoor, sorry. <%= newdata.error %>
+                        <% } %>
+
+                            <form method="post" action="/contact">
+                                <label for="name">Maak een naam <span>(verplicht)</span></label>
+                                <select id="name" name="websiteId">
+                                    <% website_data.websites.forEach(website=> { %>
+                                        <option value="<%= website.id  %>">
+                                            <%= website.titel %>
+                                        </option>
+                                        <%})%>
+                                </select>
+
+                                <label for="name">plaats een url <span>(verplicht)</span></label>
+                                <input id="name" type="url" required name="url">
+                                <div>
+                                    <input class="basic-button" type="submit">
+                                    <button class="basic-button" id="close" value="cancel">annuleren</button>
+                                </div>
+                            </form>
 
             </dialog>
 
@@ -18,39 +39,63 @@
                 <% url_data.urls.forEach(url=> { %>
                     <div class="card">
                         <div>
-                            <h4><%= url.website.titel %></h4>
-                            <a href="<%= url.url %>" class="url" target="_blank"><%= url.url %></a>
+                            <h4>
+                                <%= url.website.titel %>
+                            </h4>
+                            <a href="<%= url.url %>" class="url" target="_blank">
+                                <%= url.url %>
+                            </a>
+
                         </div>
                         <div class="divider">
-                        <div class="vortgang">
-                            <div>
-                                <p>Waneembaar</p>
-                                <p>%</p>
-                            </div>
-                            <div>
-                                <p>bedienbaar</p>
-                                <p>%</p>
-                            </div>
-                            <div>
-                                <p>begrijpelijk</p>
-                                <p>%</p>
-                            </div>
-                            <div>
-                                <p>Robuust</p>
-                                <p>%</p>
-                            </div>
-                        </div>
-                        <div class="butten-time">
-                            <button class="bekijk-pagina">></button>
-                            <div class="time">
-                                <p>Aangemaakt op:</p>
-                                <p><%= url.createdAt.slice(0, 10) %></p>
-                                <button class="card-cancel">X</button>
-                            </div>
-                        </div>
-                        </div>
-                        <dialog class="delete-card">
 
+                            <!-- <div class="vortgang">
+                                <div>
+                                    <p>Waneembaar</p>
+                                    <p>%</p>
+                                </div>
+                                <div>
+                                    <p>bedienbaar</p>
+                                    <p>%</p>
+                                </div>
+                                <div>
+                                    <p>begrijpelijk</p>
+                                    <p>%</p>
+                                </div>
+                                <div>
+                                    <p>Robuust</p>
+                                    <p>%</p>
+                                </div>
+                            </div> -->
+                            <div class="voortgang">
+                                <p>voortgang</p>
+                                <p>%</p>
+                            </div>
+                            <div class="butten-time">
+                                <button class="bekijk-pagina">
+                                    <svg id="Laag_1" data-name="Laag 1" class="point" viewBox="0 0 1000 1000">
+                                        <path class="cls-1"
+                                            d="m86.41,1000c-31.66,0-62.14-17.49-77.26-47.74-21.32-42.63-4.04-94.48,38.6-115.8l672.93-336.47L47.75,163.53C5.1,142.21-12.18,90.37,9.15,47.73S82.3-12.18,124.95,9.13l827.33,413.67c29.24,14.61,47.71,44.51,47.71,77.2s-18.46,62.57-47.71,77.2L124.95,990.86c-12.39,6.19-25.56,9.14-38.53,9.14h-.01Z" />
+                                    </svg>
+                                </button>
+                                <div class="time">
+                                    <p>Aangemaakt op:</p>
+                                    <p>
+                                        <%= url.createdAt.slice(0, 10) %>
+                                    </p>
+                                    <button class="card-cancel" popovertarget="some-popover" popovertargetaction="show">
+                                        <svg id="Laag_1" data-name="Laag 1" class="cross" viewBox="0 0 1000 1000">
+                                            <path
+                                                d="m979.54,888.52c25.14,25.14,25.14,65.88,0,91.03-12.56,12.56-29.03,18.86-45.5,18.86-16.47,0-32.95-6.28-45.53-18.86l-389.25-389.25L110.02,979.54c-12.58,12.58-29.03,18.86-45.53,18.86-16.47,0-32.95-6.28-45.5-18.86-25.14-25.14-25.14-65.88,0-91.03l389.25-389.25L19,110.02c-25.14-25.14-25.14-65.91,0-91.03,25.14-25.14,65.88-25.14,91.03,0l389.26,389.26L888.53,19.01c25.14-25.14,65.88-25.14,91.03,0,25.13,25.13,25.14,65.88,0,91.03l-389.25,389.25,389.25,389.25h-.01Z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <dialog class="delete-card" id="some-popover" popover=”autofocus” role="dialog" >
+                        Delete
+                        <a href="test">test</a>
+                        <button class="basic-button" popovertarget="some-popover" popovertargetaction="hide">Close the popover</button>
                         </dialog>
                     </div>
                     <%})%>
