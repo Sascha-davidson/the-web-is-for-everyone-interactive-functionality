@@ -28,6 +28,9 @@
 
 
 ## Bronnen
+Dit zijn de 2 bronnen voor popover die ik gelezen heb:
+* https://open-ui.org/components/popover.research.explainer/
+* https://utilitybend.com/blog/open-ui-and-the-popover-api
 
 ## Licentie
 
