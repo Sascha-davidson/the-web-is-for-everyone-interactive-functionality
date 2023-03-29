@@ -54,7 +54,7 @@
 [data-theme="dark"] {
   --body-color: #000000;
 
-  --c-background-light: #222224;
+  --c-background-light: #313131;
   --c-background-dark: #fff;
 
   --c-color-light: #222224;
@@ -328,7 +328,7 @@ nav button:hover {
 }
 
 .curve {
-  fill: var(--c-color-light);
+  fill: var(--c-background-light);
 }
 
 /* hoofd img */
@@ -512,6 +512,12 @@ main h2 {
   max-width: 45em;
 }
 /* dialog  */
+
+dialog{
+  color: var(--c-color-dark);
+
+}
+
 .new-card {
   width: 50vw;
   top: 8em;
@@ -661,7 +667,7 @@ main h2 {
   color: var(--c-color-dark);
   background-color: var(--c-background-light);
   aspect-ratio: 1;
-  height: 2em;
+  height: 1.7em;
   cursor: pointer;
   padding: .5em;
 }
