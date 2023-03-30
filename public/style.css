@@ -106,6 +106,7 @@ body {
   overflow-x: hidden;
   height: 100vh;
   height: 100svh;
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -511,38 +512,60 @@ main h2 {
 .toolboard .intro p {
   max-width: 45em;
 }
-/* dialog  */
+/* form  */
 
 dialog{
   color: var(--c-color-dark);
+}
 
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+dialog form{
+  flex-direction: column;
 }
 
 .new-card {
-  width: 50vw;
-  top: 8em;
-  left: 50%;
-  transform: translateX(-50%);
+  /* position: absolute; */
+
   background-color: var(--c-background-light);
   border-radius: var(--b-radius-medium);
   border: none;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 8);
+  /* box-shadow: var(--c-box-shadow-dark); */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
   padding: 3em;
 }
 
-.new-card::backdrop {
-  background-color: rgba(0, 0, 0, 0.7);
+.new-card-active {
+  display: none;
+}
+
+.new-card-dialog{
+  margin: auto;
+  background-color: var(--c-background-light);
+  border-radius: var(--b-radius-medium);
+  border: none;
+  box-shadow: var(--c-box-shadow-dark);
+  /* padding: 3em; */
+  overflow: hidden;
 }
 
 .new-card div {
   display: flex;
+  flex-direction: column;
   gap: var(--smal-gap);
   width: 100%;
+}
+.new-card .form-last-div{
+  flex-direction: row;
+  align-items: flex-end;
+  width: auto;
 }
 
 .new-card form {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: var(--smal-gap);
 }
 
@@ -558,9 +581,6 @@ dialog{
   padding: 3em;
 }
 
-.delete-card::backdrop {
-  background-color: rgba(0, 0, 0, 0.7);
-}
 
 
 
@@ -622,6 +642,7 @@ dialog{
   height: fit-content;
   border: var(--button);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .toolboard .bekijk-pagina {
@@ -1017,6 +1038,13 @@ details::marker {
   }
 }
 
+@media screen and (min-height: 32.5em) {
+  .new-card-page{
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 @media screen and (min-height: 67.5em) {
   .bottom-bar-verloop {
     height: 5vh;
@@ -1034,3 +1062,4 @@ details::marker {
     padding-bottom: 15vh;
   }
 }
+

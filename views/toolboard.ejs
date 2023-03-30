@@ -8,32 +8,9 @@
                     nieuwe
                     website en app digitaal toegankelijk zijn.
                 </p>
-                <button class="basic-button" id="new-card-button">Check een nieuwe website </button>
+                <a href="#new-card" class="basic-button" id="new-card-button">Check een nieuwe website </a>
+
             </div>
-            <dialog id="new-card" class="new-card">
-                <% if (typeof(newdata) !='undefined' ) { %>
-                    Er ging iets mis hoor, sorry. <%= newdata.error %>
-                        <% } %>
-
-                            <form method="post" action="/contact">
-                                <label for="name">Maak een naam <span>(verplicht)</span></label>
-                                <select id="name" name="websiteId">
-                                    <% website_data.websites.forEach(website=> { %>
-                                        <option value="<%= website.id  %>">
-                                            <%= website.titel %>
-                                        </option>
-                                        <%})%>
-                                </select>
-
-                                <label for="name">plaats een url <span>(verplicht)</span></label>
-                                <input id="name" type="url" required name="url">
-                                <div>
-                                    <input class="basic-button" type="submit">
-                                    <button class="basic-button" id="close" value="cancel">annuleren</button>
-                                </div>
-                            </form>
-
-            </dialog>
 
             <div class="checklist-list">
                 <% url_data.urls.forEach(url=> { %>
@@ -92,14 +69,42 @@
                                 </div>
                             </div>
                         </div>
-                        <dialog class="delete-card" id="some-popover" popover=”autofocus” role="dialog" >
-                        Delete
-                        <a href="test">test</a>
-                        <button class="basic-button" popovertarget="some-popover" popovertargetaction="hide">Close the popover</button>
+                        <dialog class="delete-card" id="some-popover" popover=”autofocus” role="dialog">
+                            Delete
+                            <a href="test">test</a>
+                            <button class="basic-button" popovertarget="some-popover" popovertargetaction="hide">Close
+                                the popover</button>
                         </dialog>
                     </div>
                     <%})%>
             </div>
+            <div id="new-card" class="new-card">
+                <form id="new-card-form" method="post" action="/contact">
+                    <% if (typeof(newdata) !='undefined' ) { %>
+                        Er ging iets mis hoor, sorry. <%= newdata.error %>
+                            <% } %>
+                                <div>
+                                    <label for="name">Maak een naam <span>(verplicht)</span></label>
+                                    <select id="name" name="websiteId">
+                                        <% website_data.websites.forEach(website=> { %>
+                                            <option value="<%= website.id  %>">
+                                                <%= website.titel %>
+                                            </option>
+                                            <%})%>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="name">plaats een url <span>(verplicht)</span></label>
+                                    <input id="name" type="url" required name="url">
+                                </div>
+                                <div class="form-last-div">
+                                    <input class="basic-button" type="submit">
+                                    <button hidden class="basic-button button-dialog" id="close"
+                                        value="cancel">annuleren</button>
+                                </div>
+                </form>
+            </div>
+
         </main>
 
         <%- include('./partials/foot') %>

@@ -30,19 +30,47 @@ function setTheme(theme) {
   localStorage.setItem("theme", theme);
 }
 
-const showDialog = document.getElementById("new-card-button");
-const newDialog = document.getElementById("new-card");
-const closeBtn = document.getElementById('close');
+// const showDialog = document.getElementById("new-card-button");
+// const newDialog = document.getElementById("new-card");
+// const closeBtn = document.getElementById('close');
 
-showDialog.addEventListener("click", () => {
-  newDialog.showModal();
-});
-
-closeBtn.addEventListener('click', () =>{
-  newDialog.close()
-})
-
-// newDialog.addEventListener("close", () => {
-//   outputBox.value = `ReturnValue: ${newDialog.returnValue}.`;
+// showDialog.addEventListener("click", () => {
+//   newDialog.showModal();
 // });
 
+// closeBtn.addEventListener('click', () =>{
+//   newDialog.close()
+// })
+
+// Dit is een if statment, als het bestaat voer het dan uit
+if ("showModal" in document.createElement("dialog")) {
+  // zijn de elementen
+  const showDialog = document.getElementById("new-card-button");
+  const newCard = document.getElementById("new-card");
+  const closeBtn = document.getElementById("close");
+
+  // maakt de dialog aan
+  const newDialog = document.createElement("dialog");
+
+  // geeft de dialog css styling
+  newDialog.className = "new-card-dialog";
+  // zet new-card in mijn dialog
+  newDialog.append(newCard);
+  // plaatst mijn dialog in mijn body
+  document.body.append(newDialog);
+
+  // laat de link de dialog openen
+  showDialog.addEventListener("click", (event) => {
+    // laat de dialog openen
+    newDialog.showModal();
+    // zorcht er voor dat de link niet meer werkt
+    event.preventDefault();
+  });
+
+  // zet hidden button aan
+  closeBtn.hidden = false;
+    // button sluit dialog
+  closeBtn.addEventListener("click", () => {
+    newDialog.close();
+  });
+}
