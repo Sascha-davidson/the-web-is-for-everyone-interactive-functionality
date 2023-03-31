@@ -29,9 +29,9 @@ User Story:
 ## Kenmerken
 Deze website is gemaakt met node, express en ejs. Er word ook data uit een api opgevraagd samen met een active active state voor somige pagina's. 
 
-Ik heb 2 functies gemaakt voor dit project
+Ik heb de volgende 2 functies gemaakt voor dit project
 
-### Toegankelijk Webformulieren
+### Toegankelijke Webformulieren
 Een webformulier is een formulier die de gebruiker kan invullen. mijn formulier gaat de api aanvullen met opgeslage vortgang van de checklist. Ik heb meer gefocust op het formulier werkende maken dan dat het toegankelijk is. 
 
 ### Progressive Enhancement
