@@ -705,7 +705,7 @@ dialog form{
 
 .toolboard .card-cancel:hover {
   background-color: #ff0000;
-  padding: .65em;
+  padding: .65em 0;
 }
 
 .checklist .principe {
