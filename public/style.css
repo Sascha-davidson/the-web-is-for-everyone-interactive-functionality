@@ -693,6 +693,7 @@ dialog form{
   height: 1.7em;
   cursor: pointer;
   padding: .5em;
+  width: fit-content;
 }
 
 .toolboard .card-cancel svg{
