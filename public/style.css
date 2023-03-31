@@ -659,6 +659,7 @@ dialog form{
   padding: 0.5em;
   align-items: center;
   transition: all 0.3s ease-in-out;
+  aspect-ratio: 1;
 }
 
 .toolboard .bekijk-pagina:hover {
