@@ -27,7 +27,16 @@ User Story:
 ![localhost_8000_](https://user-images.githubusercontent.com/112861160/225650849-fa2b53bb-0e55-43d1-b11e-927f8aa2572b.png)
 
 ## Kenmerken
-Deze website is gemaakt met node, express en ejs. Er word ook data uit een api opgevraagd samen met een active active state voor somige pagina's. Je kan de api aanvullen met de form die op de website staat in te vullen.
+Deze website is gemaakt met node, express en ejs. Er word ook data uit een api opgevraagd samen met een active active state voor somige pagina's. 
+
+Ik heb 2 functies gemaakt voor dit project
+
+### Toegankelijk Webformulieren
+Een webformulier is een formulier die de gebruiker kan invullen. mijn formulier gaat de api aanvullen met opgeslage vortgang van de checklist. Ik heb meer gefocust op het formulier werkende maken dan dat het toegankelijk is. 
+
+### Progressive Enhancement
+Progresive enhancement is ervoor zorgen dat alle funcites op een website berijkbaar zijn (basis html moet goed opgebouwd zijn). Als je javascript of scc niet werkt dan je dan alsnog de website kan gebruikt. Ik heb dit gedaan in mijn dialog, omdat mijn dialog javascript nodig heb on te werken so zonder javascript heb ik een alternatieve oplosing.
+
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
 
 ## Installatie
