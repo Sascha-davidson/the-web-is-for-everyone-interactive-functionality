@@ -27,7 +27,7 @@ User Story:
 ![localhost_8000_](https://user-images.githubusercontent.com/112861160/225650849-fa2b53bb-0e55-43d1-b11e-927f8aa2572b.png)
 
 ## Kenmerken
-Deze website is gemaakt met node, express en ejs. Er word ook data uit een api opgevraagd samen met een active active state voor somige pagina's. Je kan de api aanvullen met de form die op de website staat.
+Deze website is gemaakt met node, express en ejs. Er word ook data uit een api opgevraagd samen met een active active state voor somige pagina's. Je kan de api aanvullen met de form die op de website staat in te vullen.
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
 
 ## Installatie
