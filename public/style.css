@@ -209,6 +209,7 @@ header .site-header {
 
 .site-identity img {
   content: var(--logo);
+  height: auto;
   width: 11em;
   /* margin-top: 1em; */
 }
