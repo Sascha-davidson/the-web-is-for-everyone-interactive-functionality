@@ -30,18 +30,6 @@ function setTheme(theme) {
   localStorage.setItem("theme", theme);
 }
 
-// const showDialog = document.getElementById("new-card-button");
-// const newDialog = document.getElementById("new-card");
-// const closeBtn = document.getElementById('close');
-
-// showDialog.addEventListener("click", () => {
-//   newDialog.showModal();
-// });
-
-// closeBtn.addEventListener('click', () =>{
-//   newDialog.close()
-// })
-
 // Dit is een if statment, als het bestaat voer het dan uit
 if ("showModal" in document.createElement("dialog")) {
   // zijn de elementen
@@ -74,3 +62,4 @@ if ("showModal" in document.createElement("dialog")) {
     newDialog.close();
   });
 }
+

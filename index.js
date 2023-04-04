@@ -1,95 +1,85 @@
 // Importeer express uit de node_modules map
 import express, { json, response } from 'express'
 
+// hier breek ik de api url in stukjes zodat ik alleen het hoog nodige hoef te gebruiken
 const baseurl = 'https://api.vervoerregio-amsterdam.fdnd.nl/api/v1'
-const slug = '/principes'
+const principes = '/principes'
 const urls = '/urls'
 const websites = '/websites'
-const url = baseurl + slug
 
 const url_data = await fetch(baseurl + urls + '?first=300'). then((response) => response.json())
 const website_data = await fetch(baseurl + websites). then((response) => response.json())
-const data = await fetch(url). then((response) => response.json())
+const data = await fetch(baseurl + principes). then((response) => response.json())
 
 
-// Maak een nieuwe express app aan
-const app = express()
+// Maak een nieuwe express server aan
+const server = express()
 
 // Stel ejs in als template engine en geef de 'views' map door
-app.set('view engine', 'ejs')
-app.set('views', './views')
+server.set('view engine', 'ejs')
+server.set('views', './views')
 
 // Stel afhandeling van formulieren in
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+server.use(express.json())
+server.use(express.urlencoded({ extended: true }))
 
 // Gebruik de map 'public' voor statische resources
-app.use(express.static('public'))
+server.use(express.static('public'))
 
-// Maak een route voor de index
-app.get('/', function (req, res) {
-  res.render('index', {active: '/'})
+// Maak een route voor de index)
+server.get('/', function (request, response) {
+  response.render('index', {active: '/'})
 })
 
 // Maak een route voor de toolboard
-app.get('/toolboard', function (req, res) {
-  console.log(data)
-  res.render('toolboard', {url_data, data, website_data, active: '/toolboard'})
+server.get('/toolboard', function (request, response) {
+  response.render('toolboard', {url_data, data, website_data, active: '/toolboard'})
 })
 
 // Maak een route voor de checklist
-app.get('/checklist', function (req, res) {
-  console.log(data)
-  res.render('checklist', {api: data, active: '/checklist'})
-})
-
-// Maak een route voor de new-card
-app.get('/new-card', function (req, res) {
-  console.log(data)
-  res.render('new-card', {url_data, data, website_data, active: '/toolboard'})
+server.get('/checklist', function (request, response) {
+  response.render('checklist', {api: data, active: '/checklist'})
 })
 
 // Maak een route voor de contact
-app.get('/contact', function (req, res) {
-  console.log(data)
-  res.render('contact', {website_data, active: '/contact'})
+server.get('/contact', function (request, response) {
+  response.render('contact', {website_data, active: '/contact'})
 })
 
 // haalt post data op
-app.post('/contact', function(req, res) {
-  console.log(req.body)
+server.post('/contact', function(request, response) {
+  console.log(request.body)
   // TODO voor Sascha :)
-  // POST naar https://api.vervoerregio-amsterdam.fdnd.nl/api/v1/urls, de req.body
+  // POST naar https://api.vervoerregio-amsterdam.fdnd.nl/api/v1/urls, de request.body
 
   // reaction for succed or failur
   const test = baseurl + urls
-  postJson(test, req.body).then((data) => {
-    let newURL = { ... req.body }
-    console.log(JSON.stringify(data))
+  postJson(test, request.body).then((data) => {
+    let newURL = { ... request.body }
     if (data.data) {
-      res.redirect('/toolboard') 
+      response.redirect(`/checklist?id=${data.data.id}`) 
       // TODO: squad meegeven, message meegeven
       // TODO: Toast meegeven aan de homepagina
     } else {
-      const errormessage = `${req.body.url}: URl bestaat al.`
+      const errormessage = `${request.body.url}: URl bestaat al.`
       const newdata = { error: errormessage, values: newURL }
       
-      res.render('contact', {newdata, website_data, active: '/contact' })
+      response.render('contact', {newdata, website_data, active: '/contact' })
     }
   })
 })
 
 // Stel het poortnummer in waar express op gaat luisteren
-app.set('port', process.env.PORT || 8000)
+server.set('port', process.env.PORT || 8000)
 
 // Start express op, haal het ingestelde poortnummer op
-app.listen(app.get('port'), function () {
+server.listen(server.get('port'), function () {
   // Toon een bericht in de console en geef het poortnummer door
-  console.log(`Application started on http://localhost:${app.get('port')}`)
+  console.log(`serverlication started on http://localhost:${server.get('port')}`)
 })
 
 /**
- * postJson() is a wrapper for the experimental node fetch api. It fetches the url
+ * postJson() is a wrserverer for the experimental node fetch api. It fetches the url
  * passed as a parameter using the POST method and the value from the body paramater
  * as a payload. It returns the response body parsed through json.
  * @param {*} url the api endpoint to address
@@ -100,7 +90,7 @@ async function postJson(url, body) {
   return await fetch(url, {
     method: 'post',
     body: JSON.stringify(body),
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'serverlication/json' },
   })
     .then((response) => response.json())
     .catch((error) => error)

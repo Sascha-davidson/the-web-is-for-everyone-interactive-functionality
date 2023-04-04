@@ -42,7 +42,7 @@
   --site-header-height: 2.8em;
   --vervoerregio-path-box-height: 1.875em;
   --min-vervoerregio-path-box-height: -1.875em;
-  --main-padding: var(--vervoerregio-path-box-height) 10% 8em 10%;
+  --main-padding: var(--vervoerregio-path-box-height) 1em 8em 1em;
 
   --border: 0.2em solid var(--c-primary);
 
@@ -52,7 +52,7 @@
 }
 
 [data-theme="dark"] {
-  --body-color: #000000;
+  --body-color: #212121;
 
   --c-background-light: #313131;
   --c-background-dark: #fff;
@@ -71,11 +71,19 @@
   --logo: url(../assets/logo-icon/vervoerregio-logo-white.svg);
 }
 
+@media screen and (min-width: 25em) {
+  :root {
+  --main-padding: var(--vervoerregio-path-box-height) 5% 8em 5%;
+}
+}
+
 @media screen and (min-width: 50em) {
   :root {
     --site-header-height: 45px;
     --vervoerregio-path-box-height: 45px;
     --min-vervoerregio-path-box-height: -45px;
+    --main-padding: var(--vervoerregio-path-box-height) 10% 8em 10%;
+
   }
 }
 @media screen and (min-width: 120em) {
@@ -113,7 +121,6 @@ h1 {
   /* font-size: 2em; */
   font-size: clamp(2em, 6vw, 4em);
   font-weight: 400;
-  margin-bottom: 0.2em;
 }
 
 h1 strong {
@@ -123,13 +130,13 @@ h1 strong {
 }
 h2 {
   /* font-size: 2em; */
-  font-size: clamp(2em, 7vw, 3.5em);
+  font-size: clamp(1.1em, 3vw, 3.5em);
   font-weight: 400;
 }
 
 h3 {
   /* font-size: 1.3em; */
-  font-size: clamp(1.5em, 3vw, 2em);
+  font-size: clamp(1.1em, 3vw, 2em);
   font-weight: 500;
 }
 
@@ -281,23 +288,51 @@ header nav .main-nav li .active {
   color: var(--c-primary);
 }
 
-nav button {
-  transition: all 0.3s ease-in-out;
-  padding: 0.3em 1em;
-  border-radius: var(--b-radius-small);
-  border: none;
-  color: var(--c-color-light-solid);
-  background-color: var(--c-primary);
-  width: fit-content;
-  border: var(--button);
+.thema {
+  color: var(--c-color-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  padding: 0.2em 0.3em;
   cursor: pointer;
+  transition: all 0.3s ease-in-out; 
+  margin-left: .2em;
 }
 
-nav button:hover {
-  border: var(--button);
-  color: var(--c-color-light-solid);
-  background-color: rgba(0, 0, 0, 0.8);
+.thema input[type="checkbox"] {
+  position: relative;
+  width: 3em;
+  height: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--c-primary);
+  border-radius: var(--b-radius-rounded);
+  cursor: pointer;
+  box-shadow: inset 0 0 0.2em rgb(0 0 0 / 50%);
 }
+
+.thema input[type="checkbox"]::before {
+  content: "";
+  height: calc(100% - .4em);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: var(--c-color-light-solid);
+  position: absolute;
+  top: .2em;
+  left: .2em;
+  transition: 0.5s;
+}
+
+.thema input[type="checkbox"]:checked::before {
+  left: calc(100% - .2em);
+  transform: translateX(-100%);
+  background: var(--c-color-light-solid);
+}
+
+.thema input[type="checkbox"]:checked {
+  background: var(--c-vervoerregio-green);
+}
+
 
 .open-menu {
   transform: translateX(0);
@@ -391,17 +426,14 @@ nav button:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.header-style .header-style-title div {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 0em;
-  gap: 0.5em;
+  gap: 1em;
 }
 
 .header-style-title p {
   max-width: 38em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
 }
 
 .header-style-image {
@@ -480,7 +512,7 @@ main h2 {
   color: var(--c-primary);
 }
 
-.voortgang{
+.voortgang {
   display: flex;
   gap: var(--smal-gap);
   justify-content: space-between;
@@ -515,7 +547,7 @@ main h2 {
 }
 /* form  */
 
-dialog{
+dialog {
   color: var(--c-color-dark);
 }
 
@@ -523,7 +555,7 @@ dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-dialog form{
+dialog form {
   flex-direction: column;
 }
 
@@ -542,7 +574,7 @@ dialog form{
   display: none;
 }
 
-.new-card-dialog{
+.new-card-dialog {
   margin: auto;
   background-color: var(--c-background-light);
   border-radius: var(--b-radius-medium);
@@ -558,7 +590,7 @@ dialog form{
   gap: var(--smal-gap);
   width: 100%;
 }
-.new-card .form-last-div{
+.new-card .form-last-div {
   flex-direction: row;
   align-items: flex-end;
   width: auto;
@@ -570,21 +602,11 @@ dialog form{
   gap: var(--smal-gap);
 }
 
-.delete-card{
-  width: 50vw;
-  top: 8em;
-  left: 50%;
-  transform: translateX(-50%);
+.delete-card {
   background-color: var(--c-background-light);
   border-radius: var(--b-radius-medium);
   border: none;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 8);
-  padding: 3em;
 }
-
-
-
-
 
 .url {
   white-space: nowrap;
@@ -664,7 +686,7 @@ dialog form{
 
 .toolboard .bekijk-pagina:hover {
   height: 100%;
-  padding: .65em;
+  padding: 0.6em;
 }
 
 .toolboard .bekijk-pagina svg {
@@ -692,11 +714,11 @@ dialog form{
   aspect-ratio: 1;
   height: 1.7em;
   cursor: pointer;
-  padding: .5em;
+  padding: 0.5em;
   width: fit-content;
 }
 
-.toolboard .card-cancel svg{
+.toolboard .card-cancel svg {
   height: 100%;
 }
 
@@ -706,7 +728,7 @@ dialog form{
 
 .toolboard .card-cancel:hover {
   background-color: #ff0000;
-  padding: .65em 0;
+  padding: 0.6em 0;
 }
 
 .checklist .principe {
@@ -947,33 +969,23 @@ details::marker {
     width: 15em;
   }
 
+
+}
+
+@media screen and (min-width: 27.5em) {
   .toolboard .checklist-list {
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
   }
 }
 
-@media screen and (min-width: 27.5em) {
+@media screen and (min-width: 40em) {
   .toolboard .checklist-list {
     grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
   }
 }
 
 @media screen and (min-width: 50em) {
-  header nav {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    top: 0;
-    transform: none;
 
-    background: none;
-    position: relative;
-    height: auto;
-
-    max-width: none;
-  }
 
   header .main-nav {
     list-style: none;
@@ -1016,9 +1028,7 @@ details::marker {
     margin: 0 0 0 0.3em;
   }
 
-  .menu {
-    display: none;
-  }
+
 
   .site-identity img {
     width: 20em;
@@ -1027,6 +1037,27 @@ details::marker {
   .logo-width {
     width: 22em;
   }
+}
+@media screen and (min-width: 57em) {
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  transform: none;
+
+  background: none;
+  position: relative;
+  height: auto;
+
+  max-width: none;
+}
+.menu {
+  display: none;
+}
 }
 
 @media screen and (min-width: 74em) {
@@ -1042,7 +1073,7 @@ details::marker {
 }
 
 @media screen and (min-height: 32.5em) {
-  .new-card-page{
+  .new-card-page {
     top: 50%;
     transform: translate(-50%, -50%);
   }
@@ -1065,4 +1096,3 @@ details::marker {
     padding-bottom: 15vh;
   }
 }
-
