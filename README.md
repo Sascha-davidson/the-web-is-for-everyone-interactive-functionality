@@ -24,7 +24,7 @@ User Story:
 
 * #2 Als gebruiker wil ik detail informatie over een toegankelijkheidsrichtlijn bekijken, om te beoordelen of mijn website/app voldoet aan de richtlijn
 
-![curious-baseball-cap-boa cyclic app_](https://user-images.githubusercontent.com/112861160/230201159-9b5c454d-8b09-4f40-a672-7e8970f3c612.png)
+![curious-baseball-cap-boa cyclic app_ (1)](https://user-images.githubusercontent.com/112861160/230203231-a127ea88-e5e1-4c45-8771-a64f9959114b.png)
 
 ## Kenmerken
 Deze website is gemaakt met node, express en ejs. Er word ook data uit een api opgevraagd samen met een active active state voor somige pagina's. 
