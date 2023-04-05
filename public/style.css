@@ -1121,17 +1121,21 @@ details::marker {
 @media screen and (min-height: 67.5em) {
   .bottom-bar-verloop {
     height: 5vh;
+    height: 5svh;
   }
 
   .bottom-bar-box {
     height: 10vh;
+    height: 10svh;
   }
 
   .header-style-image {
     margin-bottom: -5vh;
+    margin-bottom: -5svh;
   }
 
   .header-style-content {
     padding-bottom: 15vh;
+    padding-bottom: 15svh;
   }
 }
