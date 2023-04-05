@@ -73,8 +73,8 @@
 
 @media screen and (min-width: 25em) {
   :root {
-  --main-padding: var(--vervoerregio-path-box-height) 5% 8em 5%;
-}
+    --main-padding: var(--vervoerregio-path-box-height) 5% 8em 5%;
+  }
 }
 
 @media screen and (min-width: 50em) {
@@ -83,7 +83,6 @@
     --vervoerregio-path-box-height: 45px;
     --min-vervoerregio-path-box-height: -45px;
     --main-padding: var(--vervoerregio-path-box-height) 10% 8em 10%;
-
   }
 }
 @media screen and (min-width: 120em) {
@@ -115,6 +114,7 @@ body {
   height: 100vh;
   height: 100svh;
   scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 h1 {
@@ -290,14 +290,18 @@ header nav .main-nav li .active {
 
 .thema {
   color: var(--c-color-dark);
-  display: flex;
+  display: none;
   align-items: center;
   gap: 0.2em;
   padding: 0.2em 0.3em;
   cursor: pointer;
-  transition: all 0.3s ease-in-out; 
-  margin-left: .2em;
-}
+  transition: all 0.3s ease-in-out;
+  margin-left: 0.2em;
+} 
+
+.thema-active {
+  display: flex;
+} 
 
 .thema input[type="checkbox"] {
   position: relative;
@@ -313,18 +317,18 @@ header nav .main-nav li .active {
 
 .thema input[type="checkbox"]::before {
   content: "";
-  height: calc(100% - .4em);
+  height: calc(100% - 0.4em);
   aspect-ratio: 1/1;
   border-radius: 50%;
   background: var(--c-color-light-solid);
   position: absolute;
-  top: .2em;
-  left: .2em;
+  top: 0.2em;
+  left: 0.2em;
   transition: 0.5s;
 }
 
 .thema input[type="checkbox"]:checked::before {
-  left: calc(100% - .2em);
+  left: calc(100% - 0.2em);
   transform: translateX(-100%);
   background: var(--c-color-light-solid);
 }
@@ -332,7 +336,6 @@ header nav .main-nav li .active {
 .thema input[type="checkbox"]:checked {
   background: var(--c-vervoerregio-green);
 }
-
 
 .open-menu {
   transform: translateX(0);
@@ -568,6 +571,7 @@ dialog form {
   /* box-shadow: var(--c-box-shadow-dark); */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
   padding: 3em;
+  color: var(--c-color-dark);
 }
 
 .new-card-active {
@@ -599,6 +603,48 @@ dialog form {
 .new-card form {
   display: flex;
   /* flex-direction: column; */
+  gap: var(--smal-gap);
+}
+
+.new-card-index {
+  /* position: absolute; */
+
+  background-color: var(--c-background-light);
+  border-radius: var(--b-radius-medium);
+  border: none;
+  /* box-shadow: var(--c-box-shadow-dark); */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  padding: 1em;
+  color: var(--c-color-dark);
+}
+
+.new-card-index div {
+  display: flex;
+  /* flex-direction: column; */
+  gap: var(--smal-gap);
+  width: 100%;
+}
+
+.new-card-index div label {
+  width: 100%;
+  max-width: 230px;
+  white-space:nowrap;
+}
+
+.new-card-index div input[type=url],
+.new-card-index div select {
+  width: 100%;
+}
+
+.new-card-index .form-last-div {
+  flex-direction: row;
+  align-items: flex-end;
+  width: auto;
+}
+
+.new-card-index form {
+  display: flex;
+  flex-direction: column;
   gap: var(--smal-gap);
 }
 
@@ -968,8 +1014,6 @@ details::marker {
   .logo-width {
     width: 15em;
   }
-
-
 }
 
 @media screen and (min-width: 27.5em) {
@@ -985,8 +1029,6 @@ details::marker {
 }
 
 @media screen and (min-width: 50em) {
-
-
   header .main-nav {
     list-style: none;
     display: flex;
@@ -1028,8 +1070,6 @@ details::marker {
     margin: 0 0 0 0.3em;
   }
 
-
-
   .site-identity img {
     width: 20em;
   }
@@ -1039,25 +1079,24 @@ details::marker {
   }
 }
 @media screen and (min-width: 57em) {
+  header nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    transform: none;
 
-header nav {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  top: 0;
-  transform: none;
+    background: none;
+    position: relative;
+    height: auto;
 
-  background: none;
-  position: relative;
-  height: auto;
-
-  max-width: none;
-}
-.menu {
-  display: none;
-}
+    max-width: none;
+  }
+  .menu {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 74em) {

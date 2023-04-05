@@ -8,6 +8,13 @@ menu.addEventListener("click", () => {
   socialmedia.classList.toggle("open-menu");
 });
 
+const label = document.querySelector('#thema')
+if (label){
+  label.classList.add('thema-active')
+}
+
+
+
 let modeSwitch = document.getElementById("mode");
 let savedtheme = localStorage.getItem("theme");
 
