@@ -24,7 +24,7 @@ User Story:
 
 * #2 Als gebruiker wil ik detail informatie over een toegankelijkheidsrichtlijn bekijken, om te beoordelen of mijn website/app voldoet aan de richtlijn
 
-![localhost_8000_(1920x1080)](https://user-images.githubusercontent.com/112861160/226889920-e7af40e0-28b5-4cf7-be48-0aa803b93a01.png)
+![curious-baseball-cap-boa cyclic app_](https://user-images.githubusercontent.com/112861160/230201159-9b5c454d-8b09-4f40-a672-7e8970f3c612.png)
 
 ## Kenmerken
 Deze website is gemaakt met node, express en ejs. Er word ook data uit een api opgevraagd samen met een active active state voor somige pagina's. 
